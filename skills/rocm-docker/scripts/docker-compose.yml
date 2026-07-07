@@ -1,0 +1,106 @@
+#===============================================================================
+# Docker Compose Multi-Perfil — NVIDIA CUDA + AMD ROCm + CPU
+#===============================================================================
+# Uso:
+#   docker compose --profile nvidia up -d    # Backend NVIDIA
+#   docker compose --profile rocm up -d      # Backend AMD ROCm
+#   docker compose --profile cpu up -d       # CPU fallback
+#   docker compose down                      # Detener todo
+#
+# Requisitos:
+#   - Docker Compose V2+ (NO docker-compose v1)
+#   - NVIDIA: NVIDIA Container Toolkit instalado en host
+#   - AMD:    ROCm instalado, usuario en grupos video+render
+#===============================================================================
+
+services:
+  # ── Servicio Base ────────────────────────────────────────────────────────────
+  # Define la configuración común que comparten todos los perfiles.
+  munin-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      # Cache de HuggingFace — evita descargar modelos cada vez
+      - huggingface_cache:/root/.cache/huggingface
+      # Cache adicional para modelos descargados
+      - model_cache:/app/models
+    environment:
+      - LOG_LEVEL=info
+      - HF_HOME=/root/.cache/huggingface
+    restart: unless-stopped
+    # Este servicio base no se levanta directamente — se usa via extends
+    profiles:
+      - never
+
+  # ── Perfil: NVIDIA CUDA ─────────────────────────────────────────────────────
+  munin-nvidia:
+    extends: munin-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: cuda
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - CUDA_VISIBLE_DEVICES=0,1,2,3
+      - BACKEND=cuda
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    profiles:
+      - nvidia
+
+  # ── Perfil: AMD ROCm ────────────────────────────────────────────────────────
+  munin-rocm:
+    extends: munin-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: rocm
+    devices:
+      - /dev/kfd        # Kernel Fusion Driver — necesario para ROCm
+      - /dev/dri         # Direct Rendering Manager — render nodes
+    group_add:
+      - video            # Acceso a /dev/dri
+      - render           # Acceso a /dev/dri/render*
+    cap_add:
+      - SYS_PTRACE       # ROCm lo requiere para ciertas operaciones
+    security_opt:
+      - seccomp=unconfined  # Opcional — útil para debugging
+    environment:
+      - BACKEND=rocm
+      - ROCM_HOME=/opt/rocm
+      - HIP_VISIBLE_DEVICES=0,1,2,3
+      - ROCR_VISIBLE_DEVICES=0,1,2,3
+      - HSA_OVERRIDE_GFX_VERSION=${HSA_OVERRIDE_GFX_VERSION:-}
+      - HIPBLAS_WORKSPACE_CONFIG=:512:8
+    profiles:
+      - rocm
+
+  # ── Perfil: CPU Fallback ────────────────────────────────────────────────────
+  munin-cpu:
+    extends: munin-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: cpu
+    environment:
+      - BACKEND=cpu
+      - OMP_NUM_THREADS=${OMP_NUM_THREADS:-4}
+      - MKL_NUM_THREADS=${MKL_NUM_THREADS:-4}
+    profiles:
+      - cpu
+
+volumes:
+  huggingface_cache:
+    driver: local
+  model_cache:
+    driver: local
