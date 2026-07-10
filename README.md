@@ -2,12 +2,16 @@
 
 > The first open-source collection of agent skills for AMD ROCm GPU workloads. Compatible with 9+ AI coding agents. Validated on skills.sh.
 
-[![Skills](https://img.shields.io/badge/skills-10-green)]()
-[![License](https://img.shields.io/badge/license-Apache--2.0-blue)]()
-[![GPU](https://img.shields.io/badge/GPU-AMD%20ROCm-red)]()
-[![Agents](https://img.shields.io/badge/agents-9%2B-compatible)]()
-[![skills.sh](https://img.shields.io/badge/skills.sh-validated-brightgreen)]()
-[![Python](https://img.shields.io/badge/python-3.10+-blue)]()
+[![GitHub License](https://img.shields.io/github/license/yechua-silva/amd-rocm-skills?logo=github)](https://github.com/yechua-silva/amd-rocm-skills/blob/main/LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/yechua-silva/amd-rocm-skills?logo=github&style=flat)](https://github.com/yechua-silva/amd-rocm-skills/stargazers)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/yechua-silva/amd-rocm-skills?logo=git)](https://github.com/yechua-silva/amd-rocm-skills/commits)
+[![GitHub Repo Size](https://img.shields.io/github/repo-size/yechua-silva/amd-rocm-skills?logo=github)](https://github.com/yechua-silva/amd-rocm-skills)
+
+[![Skills](https://img.shields.io/badge/skills-10-green?logo=skill-icons)](https://github.com/yechua-silva/amd-rocm-skills/tree/main/skills)
+[![GPU](https://img.shields.io/badge/GPU-AMD%20ROCm-red?logo=amd)](https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html)
+[![Agents](https://img.shields.io/badge/agents-9%2B-compatible)](https://github.com/yechua-silva/amd-rocm-skills#compatibility)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue?logo=python)](https://www.python.org/downloads/)
+[![skills.sh](https://img.shields.io/badge/skills.sh-validado-brightgreen?logo=npm)](https://skills.sh)
 
 ## Why?
 
