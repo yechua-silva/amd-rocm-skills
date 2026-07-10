@@ -1,0 +1,50 @@
+name: Validate Skills
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'skills/**'
+      - 'scripts/validate-skills.py'
+      - '.github/workflows/validate-skills.yml'
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'skills/**'
+      - 'scripts/validate-skills.py'
+      - '.github/workflows/validate-skills.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validate:
+    name: Validate SKILL.md format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run skill validation
+        id: validate
+        run: |
+          python3 scripts/validate-skills.py --strict
+        continue-on-error: true
+
+      - name: Check result
+        if: steps.validate.outcome == 'failure'
+        run: |
+          echo "::error::Skill validation failed. See output above for details."
+          echo "::error::Run locally: python3 scripts/validate-skills.py --strict"
+          exit 1
+
+      - name: Success
+        if: steps.validate.outcome == 'success'
+        run: |
+          echo "✅ All skills passed validation"
