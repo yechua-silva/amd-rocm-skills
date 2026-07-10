@@ -2,23 +2,15 @@
 name: ds132-compliance
 description: >
   Sistema de cumplimiento normativo DS 132 (Chile) para detección automatizada
-  de EPP en minería. Integra con ppe-detection-pipeline para verificar en tiempo
-  real el uso de casco (hardhat), chaleco reflectante (vest), guantes (gloves),
-  lentes de seguridad (safety glasses) y botas de seguridad (boots) según
-  normativa minera chilena. Genera reportes de cumplimiento (PDF/HTML/JSON) con
-  métricas por zona, turno y persona. Audita infracciones con log inmutable
-  (Art. 52 DS 132). Evalúa zonas de riesgo según Art. 38 (señalización y EPP).
-  Produce alertas regulatorias para SERNAGEOMIN cuando el compliance cae bajo
-  90%. Configura requisitos de EPP por zona minera (extracción, procesamiento,
-  oficina, mantención) con umbrales de confianza ajustables. Compatible con
-  faenas multi-site y distingue personal visitante de trabajador. Multi-GPU
-  ROCm/CUDA con ppe-detection-pipeline. Almacenamiento SQLite para histórico de
-  infracciones y tendencias. Exportación a formatos SERNAGEOMIN. Use this skill
-  when checking DS 132 compliance, auditing PPE requirements by zone, or
-  generating compliance reports for Chilean mining operations. / Útil al
-  verificar cumplimiento DS 132, auditar EPP por zona, o generar reportes de
-  compliance. Keywords: ds 132,
-  decreto supremo 132, mining compliance chile, epp compliance,
+  de EPP en minería. Integra con ppe-detection-pipeline para verificar uso de
+  casco, chaleco, guantes, lentes y botas según normativa chilena. Genera
+  reportes PDF/HTML/JSON con métricas por zona, turno y persona. Alertas
+  regulatorias para SERNAGEOMIN cuando compliance < 90%. Log de auditoría
+  inmutable multi-site. Multi-GPU ROCm/CUDA. Use this skill when checking
+  DS 132 compliance, auditing PPE requirements by zone, or generating compliance
+  reports for Chilean mining operations. / Útil al verificar cumplimiento
+  DS 132, auditar EPP por zona, o generar reportes de compliance. Keywords: ds
+  132, decreto supremo 132, mining compliance chile, epp compliance,
   ppe regulations, seguridad minera, normativa chilena, sernageomin, ds132,
   occupational safety, mining regulations, chilean mining law
 license: Apache-2.0

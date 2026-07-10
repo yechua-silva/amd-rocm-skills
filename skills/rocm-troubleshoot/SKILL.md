@@ -1,21 +1,19 @@
 ---
 name: rocm-troubleshoot
 description: >
-  Diagnóstico integral de problemas con AMD ROCm en GPUs AMD (MI300X, MI250,
-  RX 7900, RX 9070) y compatibilidad con NVIDIA CUDA. Cubre: GPU no detectada,
+  Diagnóstico integral de problemas con AMD ROCm (MI300X, MI250, RX 7900,
+  RX 9070) y compatibilidad NVIDIA CUDA. Cubre: GPU no detectada,
   torch.cuda.is_available() False, Docker GPU passthrough falla, vLLM sin GPU,
-  HSA_OVERRIDE_GFX_VERSION incorrecto, permisos /dev/kfd, variables de entorno
-  mal configuradas, rendimiento subóptimo, OOM, y fallos de PyTorch/vLLM/YOLO
-  en ROCm. Incluye scripts de diagnóstico automático, checklist de 10+
-  problemas y referencia de errores con soluciones probadas. Detecta conflictos
-  ROCm vs NVIDIA, verifica compatibilidad de componentes y sugiere correcciones.
-  Keywords: rocm, troubleshoot, debug, diagnostic, gpu, amd, mi300x, mi250,
-   rx7900, driver, error, fix, nvidia, cuda, docker, pytorch, vllm, yolo, hip,
-   rocminfo, rocm-smi, /dev/kfd, HSA_OVERRIDE_GFX_VERSION, OOM, permission,
-   compatibility, version-mismatch. Use this skill when diagnosing ROCm GPU
-   errors, fixing PyTorch-ROCm issues, or troubleshooting AMD GPU detection
-   problems. / Útil al diagnosticar errores de GPU ROCm, fixear PyTorch-ROCm,
-   o troubleshoot de detección de GPU AMD.
+  HSA_OVERRIDE_GFX_VERSION incorrecto, permisos /dev/kfd, OOM, rendimiento
+  subóptimo. Incluye diagnóstico automático, checklist y referencia de errores
+  con soluciones. Detecta conflictos ROCm vs NVIDIA. Keywords: rocm,
+  troubleshoot, debug, diagnostic, gpu, amd, mi300x, mi250, rx7900, driver,
+  error, fix, nvidia, cuda, docker, pytorch, vllm, yolo, hip, rocminfo,
+  rocm-smi, /dev/kfd, HSA_OVERRIDE_GFX_VERSION, OOM, permission, compatibility,
+  version-mismatch. Use this skill when diagnosing ROCm GPU errors, fixing
+  PyTorch-ROCm issues, or troubleshooting AMD GPU detection problems. / Útil al
+  diagnosticar errores de GPU ROCm, fixear PyTorch-ROCm, o troubleshoot de
+  detección de GPU AMD.
 license: Apache-2.0
 metadata:
   version: "1.1.0"
