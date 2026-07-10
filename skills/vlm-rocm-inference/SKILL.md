@@ -16,8 +16,8 @@ description: >
   nvidia, cuda, cpu, huggingface, transformers
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
-  author: "Munin Project"
+  version: "1.1.0"
+  author: "yechua-silva"
   tags:
     - amd
     - rocm
@@ -38,14 +38,10 @@ metadata:
     - transformers
     - captioning
     - vqa
-compatibility:
-  - claude-code
-  - opencode
-  - codex
-  - cursor
-  - cline
-  - roo-code
-  - windsurf
+compatibility: >
+  Compatible with Claude Code, OpenCode, Codex, Cursor, Cline, Roo Code,
+  Windsurf, Gemini CLI, and Kiro CLI. Requires Linux with AMD ROCm or
+  NVIDIA CUDA GPU (CPU fallback supported).
 ---
 
 # VLM ROCm / CUDA Inference
@@ -625,4 +621,10 @@ if "<|assistant|>" in response:
     response = response.split("<|assistant|>")[-1].strip()
 if "ASSISTANT:" in response:
     response = response.split("ASSISTANT:")[-1].strip()
+
+## Related Skills
+
+- [`vllm-rocm-deploy`](../vllm-rocm-deploy/SKILL.md) — vLLM deployment for high-throughput LLM serving
+- [`video-pipeline-rocm`](../video-pipeline-rocm/SKILL.md) — Video inference pipelines with GStreamer
+- [`rocm-benchmark`](../rocm-benchmark/SKILL.md) — GPU benchmarking and monitoring
 ```

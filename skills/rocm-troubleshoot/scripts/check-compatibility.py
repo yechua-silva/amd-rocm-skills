@@ -574,7 +574,7 @@ def print_report(report: Dict[str, Any]) -> None:
     }
 
     print("=" * 65)
-    print("  MUNIN — ROCm Compatibility Check")
+    print("  AMD ROCm — Compatibility Check")
     print("=" * 65)
 
     backend = report["backend"].upper()

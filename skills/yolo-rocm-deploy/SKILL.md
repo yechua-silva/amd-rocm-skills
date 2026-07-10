@@ -1,6 +1,6 @@
 ---
 name: yolo-rocm-deploy
-description: |
+description: >
   Despliegue de YOLOv8x con PyTorch para detección de objetos en GPUs AMD ROCm
   o NVIDIA CUDA, con fallback automático a CPU. Exportación a ONNX (universal),
   TorchScript, TensorRT (NVIDIA) y OpenVINO (Intel). Benchmark completo de
@@ -11,8 +11,8 @@ description: |
   detection, onnx, benchmark, mi300x
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
-  author: "Munin Project"
+  version: "1.1.0"
+  author: "yechua-silva"
   tags:
     - amd
     - rocm
@@ -23,11 +23,10 @@ metadata:
     - nvidia
     - cuda
     - ultralytics
-compatibility:
-  - claude-code
-  - opencode
-  - codex
-  - cursor
+compatibility: >
+  Compatible with Claude Code, OpenCode, Codex, Cursor, Cline, Roo Code,
+  Windsurf, Gemini CLI, and Kiro CLI. Requires Linux with AMD ROCm or
+  NVIDIA CUDA GPU (CPU fallback supported).
 ---
 
 # YOLO ROCm / CUDA Deploy Skill
@@ -288,3 +287,9 @@ python3 scripts/export-yolo.py --model yolov8x.pt --format onnx --validate
 - **`torch.version.cuda` is the CUDA detector**: This attribute is `None` on ROCm builds and contains the CUDA version string on CUDA builds.
 - **Ultralytics auto-detects backend**: The `device` parameter in Ultralytics accepts `"cuda:0"` regardless of whether the backend is NVIDIA or AMD.
 - **Multi-GPU**: Use `device="0,1"` for multi-GPU inference. Works on both ROCm (multiple MI300X) and CUDA (multiple A100/H100).
+
+## Related Skills
+
+- [`video-pipeline-rocm`](../video-pipeline-rocm/SKILL.md) — Video inference pipelines with GStreamer
+- [`ppe-detection-pipeline`](../ppe-detection-pipeline/SKILL.md) — PPE detection for mining safety
+- [`rocm-benchmark`](../rocm-benchmark/SKILL.md) — GPU benchmarking and monitoring

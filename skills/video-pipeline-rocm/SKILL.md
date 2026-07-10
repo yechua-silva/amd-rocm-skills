@@ -11,14 +11,18 @@ description: >
   inferencia batch optimizada, y post-procesamiento con bounding boxes/tracking.
   Usar al procesar streams RTSP con modelos de IA, transcodificar video con
   aceleración HW, extraer frames por scene change, o construir pipelines
-  video-inferencia multi-GPU. Keywords: gstreamer, rocm, video, pipeline,
+  video-inferencia multi-GPU. Use this skill when building video inference
+  pipelines with GStreamer, processing RTSP streams with YOLO, or extracting
+  frames with hardware acceleration. / Útil al construir pipelines de inferencia
+  de video con GStreamer, procesar streams RTSP con YOLO, o extraer frames con
+  aceleración hardware. Keywords: gstreamer, rocm, video, pipeline,
   inference, vcn, amd, nvidia, cuda, rtsp, transcoding, yolo, vlm, frame-extraction,
   video-analytics, vaapi, nvdec, hw-acceleration, video-decode, streaming,
   computer-vision, pytorch, hip, gpu-video, v4l2, appsink
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
-  author: "Munin Project"
+  version: "1.1.0"
+  author: "yechua-silva"
   tags:
     - amd
     - rocm
@@ -35,14 +39,10 @@ metadata:
     - hw-acceleration
     - pytorch
     - computer-vision
-compatibility:
-  - claude-code
-  - opencode
-  - codex
-  - cursor
-  - cline
-  - roo-code
-  - windsurf
+compatibility: >
+  Compatible with Claude Code, OpenCode, Codex, Cursor, Cline, Roo Code,
+  Windsurf, Gemini CLI, and Kiro CLI. Requires Linux with AMD ROCm or
+  NVIDIA CUDA GPU (CPU fallback supported).
 ---
 
 # Video Inference Pipeline — ROCm / CUDA / CPU
@@ -136,7 +136,7 @@ bash scripts/detect-backend.sh
 
 # Output esperado:
 # ============================================================
-#   Munin — Video Acceleration Backend Detection
+#   Video Acceleration Backend Detection
 # ============================================================
 #   Backend:            AMD VCN
 #   Decode:             vaapi (vaapih264dec, vaapih265dec, ...)
@@ -752,3 +752,9 @@ bash scripts/gst-pipeline.sh --backend cpu ...
 - **Buffer management**: En pipelines en tiempo real, usar `drop-on-latency=true` para evitar acumulación de frames si la inferencia va más lenta que el video.
 - **Multi-GPU**: Los scripts soportan múltiples GPUs. Usar `HIP_VISIBLE_DEVICES=0,1` (AMD) o `CUDA_VISIBLE_DEVICES=0,1` (NVIDIA) para seleccionar GPUs específicas.
 - **VCN decodifica en GPU, inferencia en GPU**: Ambos ocurren en la misma GPU, compitiendo por VRAM. Monitorear con `rocm-smi` (AMD) o `nvidia-smi` (NVIDIA).
+
+## Related Skills
+
+- [`yolo-rocm-deploy`](../yolo-rocm-deploy/SKILL.md) — YOLO object detection on ROCm/CUDA
+- [`vlm-rocm-inference`](../vlm-rocm-inference/SKILL.md) — Direct PyTorch VLM inference on ROCm/CUDA
+- [`ppe-detection-pipeline`](../ppe-detection-pipeline/SKILL.md) — PPE detection for mining safety

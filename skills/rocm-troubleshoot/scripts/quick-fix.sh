@@ -119,7 +119,7 @@ info() { echo -e "  ${INFO} $1"; }
 # Banner
 # ═══════════════════════════════════════════════════════════
 echo "╔══════════════════════════════════════════╗"
-echo "║    ROCm Quick Fix — Munin Troubleshoot   ║"
+echo "║    ROCm Quick Fix — AMD ROCm Troubleshoot   ║"
 if $EXECUTE; then
     echo "║    Mode: EXECUTE (-y)                    ║"
 else
@@ -315,7 +315,7 @@ if $DO_DOCKER; then
     if [ -e /dev/kfd ] && [ -d /dev/dri ]; then
         info "Probando Docker ROCm..."
         if docker run --rm --device=/dev/kfd --device=/dev/dri --group-add=video \
-            rocm/dev-ubuntu-22.04:latest ls /dev/kfd &>/tmp/munin-quick-docker-test.log; then
+            rocm/dev-ubuntu-22.04:latest ls /dev/kfd &>/tmp/rocm-quick-docker-test.log; then
             ok "Docker ROCm test: OK"
         else
             warn "Docker ROCm test: FAILED"

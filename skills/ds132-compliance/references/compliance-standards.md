@@ -35,7 +35,7 @@ específicas por tipo de EPP.
 | Rango temperatura | −10 °C a +50 °C |
 | Marcado | Fabricante, fecha, norma, talla |
 
-**Clase Munin**: `hardhat`
+**Application-specific classes**: `hardhat`
 
 ### NCh 1436 — Chalecos Reflectantes
 
@@ -51,7 +51,7 @@ específicas por tipo de EPP.
 
 **Recomendado para minería**: Clase 2 o 3
 
-**Clase Munin**: `vest`
+**Application-specific classes**: `vest`
 
 ### NCh 461 (Sección Guantes) — Guantes de Seguridad
 
@@ -69,7 +69,7 @@ específicas por tipo de EPP.
 
 **Recomendado para minería**: Nivel 3 o superior para manipulación de materiales
 
-**Clase Munin**: `gloves`
+**Application-specific classes**: `gloves`
 
 ### NCh 461 (Sección Calzado) — Botas de Seguridad
 
@@ -88,7 +88,7 @@ específicas por tipo de EPP.
 
 **Recomendado para minería**: S3 (uso general) o S5 (ambientes con hidrocarburos)
 
-**Clase Munin**: `boots`
+**Application-specific classes**: `boots`
 
 ### NCh 461 (Sección Lentes) — Lentes de Seguridad
 
@@ -105,7 +105,7 @@ específicas por tipo de EPP.
 **Recomendado para minería**: Lentes envolventes o careta facial en zonas de
 procesamiento (partículas en suspensión)
 
-**Clase Munin**: `safety-glasses`
+**Application-specific classes**: `safety-glasses`
 
 ---
 
@@ -176,9 +176,9 @@ profesionales
 
 ---
 
-## Mapeo de Clases PPE Munin a Normativa Chilena
+## Mapeo de PPE classes a Normativa Chilena
 
-| Clase Munin | Nombre Español | Norma Chilena | Artículo DS 132 | EPP Relacionado |
+| Application-specific classes | Nombre Español | Norma Chilena | Artículo DS 132 | EPP Relacionado |
 |-------------|----------------|---------------|-----------------|-----------------|
 | `hardhat` | Casco de seguridad | NCh 1411 | Art. 12, Art. 38 | Casco minero con barbiquejo |
 | `vest` | Chaleco reflectante | NCh 1436 | Art. 12, Art. 38 | Chaleco Clase 2 o 3 |

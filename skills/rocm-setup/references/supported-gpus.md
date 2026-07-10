@@ -4,7 +4,7 @@ Tabla completa de GPUs AMD compatibles con ROCm, organizadas por
 arquitectura GFX.  Útil para determinar qué versión de ROCm instalar y
 cómo configurar `HSA_OVERRIDE_GFX_VERSION`.
 
-> **Prioridad Munin**: MI300X (gfx942) es el objetivo principal del
+> **Prioridad**: MI300X (gfx942) es el objetivo principal del
 > hackathon.  ROCm 7.2.x es la versión recomendada.
 
 ## Tabla Completa de GPUs AMD
@@ -49,7 +49,7 @@ cómo configurar `HSA_OVERRIDE_GFX_VERSION`.
 - Soporte para FP8 en ROCm 6.x.
 
 ### CDNA3 (gfx940/gfx941/gfx942) — MI300A / MI300X / MI325X
-- **MI300X (gfx942)** es la GPU objetivo del proyecto Munin.
+- **MI300X (gfx942)** es la GPU objetivo.
 - 192 GB HBM3 con 5.2 TB/s de ancho de banda.
 - Matrix Cores de 4ª generación con soporte FP8 y FP16.
 - MI325X (gfx942) extiende a 288 GB con HBM3e.

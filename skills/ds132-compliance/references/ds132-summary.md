@@ -188,7 +188,7 @@ cumplimiento del DS 132.
 
 ### Cómo apoya esta skill la fiscalización
 
-| Aspecto | Sin Automatización | Con Munin DS 132 Compliance |
+| Aspecto | Sin Automatización | Con DS 132 Compliance |
 |---------|-------------------|------------------------------|
 | Registro de EPP | Papel, fotos sueltas | Log inmutable con hash chain |
 | Reportes | Manuales, inconsistentes | PDF/HTML/JSON estandarizados |

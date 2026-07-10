@@ -11,8 +11,8 @@ description: >
   llava, mi300, a100, h100, inference, deployment, openai-api, docker
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
-  author: "Munin Project"
+  version: "1.1.0"
+  author: "yechua-silva"
   tags:
     - amd
     - rocm
@@ -26,14 +26,10 @@ metadata:
     - docker
     - python
     - gpu
-compatibility:
-  - claude-code
-  - opencode
-  - codex
-  - cursor
-  - cline
-  - roo-code
-  - windsurf
+compatibility: >
+  Compatible with Claude Code, OpenCode, Codex, Cursor, Cline, Roo Code,
+  Windsurf, Gemini CLI, and Kiro CLI. Requires Linux with AMD ROCm or
+  NVIDIA CUDA GPU (CPU fallback supported).
 ---
 
 # vLLM ROCm / CUDA Deploy
@@ -411,3 +407,9 @@ export HSA_OVERRIDE_GFX_VERSION=11.0.0
 ```bash
 sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
+
+## Related Skills
+
+- [`vlm-rocm-inference`](../vlm-rocm-inference/SKILL.md) — Direct PyTorch VLM inference on ROCm/CUDA
+- [`rocm-docker`](../rocm-docker/SKILL.md) — Docker with AMD GPU passthrough
+- [`rocm-benchmark`](../rocm-benchmark/SKILL.md) — GPU benchmarking and monitoring

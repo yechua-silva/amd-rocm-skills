@@ -1,24 +1,40 @@
-# Roadmap Pre-Munin Skills
+# Roadmap — AMD ROCm Agent Skills
 
-## Fase 1 — Core (hackathon)
-- [ ] rocm-setup — SKILL.md, scripts, references
-- [ ] rocm-docker — SKILL.md, scripts, references  
-- [ ] vllm-rocm-deploy — SKILL.md, scripts, references
-- [ ] yolo-rocm-deploy — SKILL.md, scripts, references
-- [ ] Probar instalación local en `.opencode/skills/`
+## Completed ✅
 
-## Fase 2 — Pipeline (post-hackathon)
-- [ ] video-pipeline-rocm
-- [ ] vlm-rocm-inference
-- [ ] rocm-benchmark
+### Phase 1 — Core Skills
+- [x] 10 skills created and validated
+- [x] Multi-GPU support (ROCm + CUDA + CPU)
+- [x] 9+ agent compatibility
+- [x] agentskills.io spec compliance
+- [x] scripts/ and references/ for all skills
+- [x] Bilingual documentation (English + Spanish)
 
-## Fase 3 — Industrial (visión Munin)
-- [ ] ppe-detection-pipeline
-- [ ] ds132-compliance
-- [ ] rocm-troubleshoot
+### Phase 2 — Quality & Standards
+- [x] skills.sh.json groupings
+- [x] CONTRIBUTING.md + CODE_OF_CONDUCT.md
+- [x] AGENTS.md (agent-facing overview)
+- [x] Cross-references between skills
+- [x] Compatibility field as string (agentskills.io spec)
+- [x] De-projectified (no references to specific projects)
 
-## Publicación (post-hackathon)
-- [ ] Crear repo público en GitHub
-- [ ] Agregar LICENSE (Apache 2.0)
-- [ ] Registrar en skills.sh
-- [ ] Anunciar en r/ROCm, r/AMD
+## Planned 📋
+
+### Phase 3 — Publishing
+- [ ] Publish to skills.sh registry
+- [ ] Add skills.sh badge to README
+- [ ] Verify `npx skills add yechua-silva/amd-rocm-skills --list` works
+- [ ] Promote on social media / dev communities
+
+### Phase 4 — Expansion
+- [ ] Additional industrial skills (rocm-tuning, multi-gpu-training)
+- [ ] Skill evaluation framework (eval queries + scoring)
+- [ ] Community contributions (PRs from external contributors)
+- [ ] CI/CD validation (automated skill format checking)
+
+### Phase 5 — Advanced
+- [ ] ONNX Runtime ROCm skill
+- [ ] RCCL collectives skill
+- [ ] Triton kernels on ROCm
+- [ ] FSDP/DeepSpeed on AMD GPU
+- [ ] vLLM serving with tensor parallelism

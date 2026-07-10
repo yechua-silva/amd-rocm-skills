@@ -183,7 +183,7 @@ def detect_gpu_backend() -> Dict[str, Any]:
 def print_report(info: Dict[str, Any]) -> None:
     """Print a human-readable GPU detection report."""
     print("=" * 60)
-    print("  MUNIN — GPU Detection Report")
+    print("  AMD ROCm — GPU Detection Report")
     print("=" * 60)
 
     status = "✅ GPU DETECTADA" if info["available"] else "⚠️  SOLO CPU"

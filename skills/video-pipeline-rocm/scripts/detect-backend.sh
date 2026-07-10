@@ -229,7 +229,7 @@ calculate_score() {
 main() {
     [ "$MODE" != "--json" ] && [ "$MODE" != "--quiet" ] && echo "
 ╔══════════════════════════════════════════════════════════╗
-║   Munin — Video Acceleration Backend Detection          ║
+║   AMD ROCm — Video Backend Detection          ║
 ║   AMD VCN / NVIDIA NVDEC / CPU Software Decode          ║
 ╚══════════════════════════════════════════════════════════╝
 "

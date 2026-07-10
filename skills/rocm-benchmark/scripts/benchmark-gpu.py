@@ -975,7 +975,7 @@ class GPUMonitor:
 def print_info(backend_info: Dict[str, Any]):
     """Print system information."""
     print("╔══════════════════════════════════════════╗")
-    print("║       MUNIN — GPU Benchmark Suite       ║")
+    print("║       AMD ROCm — GPU Benchmark Suite       ║")
     print("╚══════════════════════════════════════════╝")
     bi = backend_info
     print(f"  Backend:          {bi['backend'].upper()}")
@@ -1003,7 +1003,7 @@ def print_report(all_results: Dict[str, Any], backend_info: Dict[str, Any]):
     """Print consolidated benchmark report."""
     print()
     print("═" * 64)
-    print("         MUNIN — GPU Benchmark Report")
+    print("         AMD ROCm — GPU Benchmark Report")
     print("═" * 64)
 
     bi = backend_info

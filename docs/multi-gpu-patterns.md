@@ -1,6 +1,6 @@
 # Patrones Multi-GPU — Skills que Funcionan en CUALQUIER Hardware
 
-> Documento consolidado de investigación Fase 0 para el proyecto Munin.
+> Documento consolidado de investigación Fase 0 para el your project.
 > Define patrones de detección y ejecución multi-GPU compatibles con NVIDIA CUDA, AMD ROCm y CPU fallback.
 
 ---
@@ -158,7 +158,7 @@ def detect_gpu_backend() -> dict:
 def print_report(info: dict) -> None:
     """Imprime un reporte legible de detección de GPU."""
     print("=" * 60)
-    print("  MUNIN — GPU Detection Report")
+    print("  AMD ROCm — GPU Detection Report")
     print("=" * 60)
     
     status = "✅ GPU DETECTADA" if info["available"] else "⚠️  SOLO CPU"
@@ -194,7 +194,7 @@ python detect_gpu_backend.py
 
 # Salida típica (NVIDIA):
 # ============================================================
-#   MUNIN — GPU Detection Report
+#   AMD ROCm — GPU Detection Report
 # ============================================================
 #   Estado:    ✅ GPU DETECTADA
 #   Backend:   CUDA
@@ -208,7 +208,7 @@ python detect_gpu_backend.py
 
 # Salida típica (AMD ROCm):
 # ============================================================
-#   MUNIN — GPU Detection Report
+#   AMD ROCm — GPU Detection Report
 # ============================================================
 #   Estado:    ✅ GPU DETECTADA
 #   Backend:   ROCM
@@ -222,7 +222,7 @@ python detect_gpu_backend.py
 
 # Salida típica (CPU only):
 # ============================================================
-#   MUNIN — GPU Detection Report
+#   AMD ROCm — GPU Detection Report
 # ============================================================
 #   Estado:    ⚠️  SOLO CPU
 #   Backend:   CPU
@@ -579,13 +579,13 @@ CMD ["python", "run.py"]
 
 ```bash
 # Construir para NVIDIA
-docker build --target cuda -t munin-app:cuda .
+docker build --target cuda -t rocm-app:cuda .
 
 # Construir para AMD
-docker build --target rocm -t munin-app:rocm .
+docker build --target rocm -t rocm-app:rocm .
 
 # Construir para CPU
-docker build --target cpu -t munin-app:cpu .
+docker build --target cpu -t rocm-app:cpu .
 ```
 
 ### 5.2 Entrypoint.sh con Detección Automática
@@ -596,7 +596,7 @@ docker build --target cpu -t munin-app:cpu .
 
 set -e
 
-echo "=== Munin: Detectando backend GPU ==="
+echo "=== the application: Detectando backend GPU ==="
 
 # Detectar NVIDIA
 if command -v nvidia-smi &> /dev/null; then
@@ -636,7 +636,7 @@ exec python run.py --backend cpu "$@"
 version: "3.9"
 
 services:
-  munin-app:
+  rocm-app:
     build:
       context: .
       dockerfile: Dockerfile
@@ -650,8 +650,8 @@ services:
       - cpu
 
   # Perfil NVIDIA
-  munin-nvidia:
-    extends: munin-app
+  rocm-nvidia:
+    extends: rocm-app
     build:
       target: cuda
     runtime: nvidia
@@ -661,8 +661,8 @@ services:
     profiles: ["nvidia"]
 
   # Perfil AMD
-  munin-rocm:
-    extends: munin-app
+  rocm-backend:
+    extends: rocm-app
     build:
       target: rocm
     devices:
@@ -676,8 +676,8 @@ services:
     profiles: ["rocm"]
 
   # Perfil CPU
-  munin-cpu:
-    extends: munin-app
+  generic-cpu:
+    extends: rocm-app
     build:
       target: cpu
     environment:

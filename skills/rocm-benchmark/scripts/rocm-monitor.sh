@@ -94,7 +94,7 @@ if [[ "$BACKEND" == "none" ]]; then
 fi
 
 echo -e "${CYAN}╔══════════════════════════════════════════╗${NC}"
-echo -e "${CYAN}║     MUNIN — GPU Monitor (${BACKEND})   ║${NC}"
+echo -e "${CYAN}║     AMD ROCm — GPU Monitor (${BACKEND})   ║${NC}"
 echo -e "${CYAN}╚══════════════════════════════════════════╝${NC}"
 echo "  Interval: ${INTERVAL}s | Log: ${LOG_FILE:-stdout}"
 echo "  Press Ctrl+C to stop and show summary"

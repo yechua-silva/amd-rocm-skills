@@ -10,13 +10,16 @@ description: >
   problemas y referencia de errores con soluciones probadas. Detecta conflictos
   ROCm vs NVIDIA, verifica compatibilidad de componentes y sugiere correcciones.
   Keywords: rocm, troubleshoot, debug, diagnostic, gpu, amd, mi300x, mi250,
-  rx7900, driver, error, fix, nvidia, cuda, docker, pytorch, vllm, yolo, hip,
-  rocminfo, rocm-smi, /dev/kfd, HSA_OVERRIDE_GFX_VERSION, OOM, permission,
-  compatibility, version-mismatch
+   rx7900, driver, error, fix, nvidia, cuda, docker, pytorch, vllm, yolo, hip,
+   rocminfo, rocm-smi, /dev/kfd, HSA_OVERRIDE_GFX_VERSION, OOM, permission,
+   compatibility, version-mismatch. Use this skill when diagnosing ROCm GPU
+   errors, fixing PyTorch-ROCm issues, or troubleshooting AMD GPU detection
+   problems. / Útil al diagnosticar errores de GPU ROCm, fixear PyTorch-ROCm,
+   o troubleshoot de detección de GPU AMD.
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
-  author: "Munin Project"
+  version: "1.1.0"
+  author: "yechua-silva"
   tags:
     - amd
     - rocm
@@ -36,12 +39,10 @@ metadata:
     - yolo
     - hip
     - compatibility
-compatibility:
-  - claude-code
-  - opencode
-  - codex
-  - cursor
-  - "Requiere Linux con GPU AMD o NVIDIA, acceso a shell y permisos para instalar paquetes."
+compatibility: >
+  Compatible with Claude Code, OpenCode, Codex, Cursor, Cline, Roo Code,
+  Windsurf, Gemini CLI, and Kiro CLI. Requires Linux with AMD or NVIDIA GPU,
+  shell access, and package installation permissions.
 ---
 
 # ROCm Troubleshoot Skill
@@ -49,7 +50,7 @@ compatibility:
 Diagnóstico y resolución de problemas para el ecosistema **AMD ROCm**.
 Esta skill es la guía definitiva para identificar, diagnosticar y solucionar
 fallos en GPUs AMD (MI300X, MI250, RX 7900, RX 9070) y entornos mixtos
-con NVIDIA CUDA. Construye sobre todas las skills previas del catálogo Munin
+con NVIDIA CUDA. Construye sobre todas las skills previas del catalog of skills
 (rocm-setup, rocm-docker, vllm-rocm-deploy, yolo-rocm-deploy, etc.) para
 proporcionar un punto único de troubleshooting.
 
@@ -923,3 +924,9 @@ for i in range(torch.cuda.device_count()):
 ### 12. Error al compilar flash-attention en ROCm
 - **Causa**: Código CUDA nativo incompatible con HIP
 - **Solución**: Usar fork oficial de ROCm: `pip install git+https://github.com/ROCm/flash-attention.git`
+
+## Related Skills
+
+- [`rocm-setup`](../rocm-setup/SKILL.md) — ROCm installation and verification
+- [`rocm-docker`](../rocm-docker/SKILL.md) — Docker with AMD GPU passthrough
+- [`rocm-benchmark`](../rocm-benchmark/SKILL.md) — GPU benchmarking and monitoring

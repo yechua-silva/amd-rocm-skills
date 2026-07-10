@@ -15,8 +15,8 @@ description: >
   stress-test, gemm, bandwidth, flops, thermal-throttle, f1
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
-  author: "Munin Project"
+  version: "1.1.0"
+  author: "yechua-silva"
   tags:
     - amd
     - rocm
@@ -33,11 +33,10 @@ metadata:
     - mi300x
     - rocm-smi
     - stress-test
-compatibility:
-  - claude-code
-  - opencode
-  - codex
-  - cursor
+compatibility: >
+  Compatible with Claude Code, OpenCode, Codex, Cursor, Cline, Roo Code,
+  Windsurf, Gemini CLI, and Kiro CLI. Requires Linux with AMD ROCm or
+  NVIDIA CUDA GPU (CPU fallback supported).
 ---
 
 # ROCm Benchmark Skill
@@ -136,7 +135,7 @@ El script detecta:
 ```bash
 # Salida típica:
 # ╔══════════════════════════════════════════╗
-# ║       MUNIN — GPU Benchmark Suite       ║
+# ║       AMD ROCm — GPU Benchmark Suite       ║
 # ╚══════════════════════════════════════════╝
 #   Backend:    ROCM
 #   Device:     AMD Instinct MI300X
@@ -369,7 +368,7 @@ El reporte JSON incluye:
 En modo texto, el reporte incluye una tabla comparativa:
 ```
 ═══════════════════════════════════════════════════════════════
-              MUNIN — GPU Benchmark Report
+              AMD ROCm — GPU Benchmark Report
 ═══════════════════════════════════════════════════════════════
  System:        AMD Instinct MI300X (ROCM)
  Driver:        7.2.0
@@ -622,4 +621,10 @@ python3 -c "from ultralytics import YOLO; model = YOLO('yolov8n.pt'); print('✅
 
 # Usar modelo pequeño para benchmark rápido
 python3 scripts/benchmark-gpu.py --inference --model yolo --yolo-model yolov8n.pt --iterations 50
+
+## Related Skills
+
+- [`rocm-setup`](../rocm-setup/SKILL.md) — ROCm installation and verification
+- [`yolo-rocm-deploy`](../yolo-rocm-deploy/SKILL.md) — YOLO object detection on ROCm/CUDA
+- [`vlm-rocm-inference`](../vlm-rocm-inference/SKILL.md) — Direct PyTorch VLM inference on ROCm/CUDA
 ```

@@ -25,19 +25,19 @@ base  ← Dependencias comunes (Python, requirements, código)
 # Dockerfile Multi-Stage — NVIDIA CUDA + AMD ROCm + CPU
 # ==============================================================================
 # Build:
-#   docker build --target cuda -t munin/app:cuda .
-#   docker build --target rocm -t munin/app:rocm .
-#   docker build --target cpu  -t munin/app:cpu .
+#   docker build --target cuda -t rocm-app:cuda .
+#   docker build --target rocm -t rocm-app:rocm .
+#   docker build --target cpu  -t rocm-app:cpu .
 #
 # Run:
 #   # NVIDIA
-#   docker run --runtime nvidia --gpus all munin/app:cuda
+#   docker run --runtime nvidia --gpus all rocm-app:cuda
 #
 #   # AMD ROCm
-#   docker run --device=/dev/kfd --device=/dev/dri --group-add=render munin/app:rocm
+#   docker run --device=/dev/kfd --device=/dev/dri --group-add=render rocm-app:rocm
 #
 #   # CPU
-#   docker run munin/app:cpu
+#   docker run rocm-app:cpu
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
@@ -176,13 +176,13 @@ data/
 
 ```bash
 # NVIDIA CUDA
-docker build --target cuda -t munin/app:cuda .
+docker build --target cuda -t rocm-app:cuda .
 
 # AMD ROCm
-docker build --target rocm -t munin/app:rocm .
+docker build --target rocm -t rocm-app:rocm .
 
 # CPU
-docker build --target cpu -t munin/app:cpu .
+docker build --target cpu -t rocm-app:cpu .
 ```
 
 ### Build multi-arch (AMD ROCm solo x86_64 de momento)
@@ -190,11 +190,11 @@ docker build --target cpu -t munin/app:cpu .
 ```bash
 # NVIDIA CUDA (x86_64 + arm64)
 docker buildx build --platform linux/amd64,linux/arm64 \
-  --target cuda -t munin/app:cuda --push .
+  --target cuda -t rocm-app:cuda --push .
 
 # AMD ROCm (solo x86_64)
 docker buildx build --platform linux/amd64 \
-  --target rocm -t munin/app:rocm --push .
+  --target rocm -t rocm-app:rocm --push .
 ```
 
 ---
@@ -205,7 +205,7 @@ docker buildx build --platform linux/amd64 \
 
 ```bash
 # Básico
-docker run --rm --runtime nvidia --gpus all munin/app:cuda
+docker run --rm --runtime nvidia --gpus all rocm-app:cuda
 
 # Con todas las GPUs
 docker run --rm --runtime nvidia --gpus all \
@@ -213,7 +213,7 @@ docker run --rm --runtime nvidia --gpus all \
   -e CUDA_VISIBLE_DEVICES=0,1 \
   -v ~/.cache/huggingface:/root/.cache/huggingface \
   -p 8000:8000 \
-  munin/app:cuda
+  rocm-app:cuda
 ```
 
 ### AMD ROCm
@@ -225,7 +225,7 @@ docker run --rm \
   --device=/dev/dri \
   --group-add=video \
   --group-add=render \
-  munin/app:rocm
+  rocm-app:rocm
 
 # Con configuración completa
 docker run --rm \
@@ -239,13 +239,13 @@ docker run --rm \
   -e HSA_OVERRIDE_GFX_VERSION=11.0.0 \
   -v ~/.cache/huggingface:/root/.cache/huggingface \
   -p 8000:8000 \
-  munin/app:rocm
+  rocm-app:rocm
 ```
 
 ### CPU
 
 ```bash
-docker run --rm -p 8000:8000 munin/app:cpu
+docker run --rm -p 8000:8000 rocm-app:cpu
 ```
 
 ---
@@ -294,9 +294,9 @@ CMD ["python", "run.py"]
 
 ```bash
 # Ahora funciona en cualquier backend sin flags extra
-docker run --runtime nvidia --gpus all munin/app  # detecta CUDA
-docker run --device=/dev/kfd --device=/dev/dri munin/app  # detecta ROCm
-docker run munin/app  # fallback CPU
+docker run --runtime nvidia --gpus all rocm-app  # detecta CUDA
+docker run --device=/dev/kfd --device=/dev/dri rocm-app  # detecta ROCm
+docker run rocm-app  # fallback CPU
 ```
 
 ### 5. Usar ARG para versiones
@@ -319,7 +319,7 @@ docker buildx inspect --bootstrap
 
 # Build multi-arch
 docker buildx build --platform linux/amd64,linux/arm64 \
-  --target cpu -t munin/app:cpu --push .
+  --target cpu -t rocm-app:cpu --push .
 ```
 
 > **Nota:** ROCm solo está disponible para `linux/amd64`. No intentes builds multi-arch para el target `rocm`.
@@ -331,16 +331,16 @@ docker buildx build --platform linux/amd64,linux/arm64 \
 ```bash
 # Verificar que la imagen CUDA funciona
 docker run --rm --runtime nvidia --gpus all \
-  munin/app:cuda \
+  rocm-app:cuda \
   python3 -c "import torch; print(f'CUDA: {torch.cuda.is_available()}, Device: {torch.cuda.get_device_name(0)}')"
 
 # Verificar que la imagen ROCm funciona
 docker run --rm --device=/dev/kfd --device=/dev/dri --group-add=video \
-  munin/app:rocm \
+  rocm-app:rocm \
   python3 -c "import torch; print(f'ROCm: {torch.cuda.is_available()}, HIP: {torch.version.hip}')"
 
 # Verificar que la imagen CPU funciona
-docker run --rm munin/app:cpu \
+docker run --rm rocm-app:cpu \
   python3 -c "import torch; print(f'CPU: {torch.cuda.is_available()}, Backend: cpu')"
 ```
 

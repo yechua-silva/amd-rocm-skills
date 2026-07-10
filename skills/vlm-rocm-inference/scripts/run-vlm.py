@@ -106,7 +106,7 @@ MODEL_CONFIGS = {
         "processor_class": "AutoProcessor",
         "prompt_format": "<|user|>\n<image>\n{prompt}\n<|end|>\n<|assistant|>\n",
         "min_vram_gb": 22,
-        "description": "InternVL2-8B — recomendado Munin, mejor balance accuracy/VRAM",
+        "description": "InternVL2-8B — recommended, mejor balance accuracy/VRAM",
     },
     "InternVL2-4B": {
         "name": "OpenGVLab/InternVL2-4B",
@@ -614,7 +614,7 @@ Modelos:
     # ── Banner ─────────────────────────────────────────
     print()
     print("=" * 55)
-    print("  VLM Inference — Munin")
+    print("  VLM Inference — AMD ROCm")
     print("=" * 55)
     print(f"  Modelo:       {model_key}")
     print(f"  Repo:         {config['name']}")

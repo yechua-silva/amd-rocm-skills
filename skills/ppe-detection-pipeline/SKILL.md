@@ -10,14 +10,19 @@ description: >
   y JSON por frame. Multi-cámara con threads, multi-GPU, benchmark FPS/latencia.
   Fine-tuning YOLOv8x con data augmentation para minería (polvo, baja luz).
   Alertas con rate limiting y umbrales por zona. Integrable con SCADA. AMD ROCm
-  (MI300X, RX 7900) y NVIDIA CUDA (A100, H100, RTX). Keywords: ppe detection,
+  (MI300X, RX 7900) y NVIDIA CUDA (A100, H100, RTX). Use this skill when
+  building PPE detection systems for mining, detecting hardhats/safety vests in
+  video, or setting up industrial safety compliance monitoring. / Útil al
+  construir sistemas de detección de EPP para minería, detectar cascos/chalecos
+  en video, o configurar monitoreo de cumplimiento de seguridad industrial.
+  Keywords: ppe detection,
   epp, deteccion elementos proteccion, casco seguridad, hardhat detection, chaleco
   reflectante, safety gear, mining safety, industrial surveillance, yolo, rocm,
   cuda, tracking, video analytics, seguridad minera, mineria, industrial safety.
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
-  author: "Munin Project"
+  version: "1.1.0"
+  author: "yechua-silva"
   tags:
     - amd
     - rocm
@@ -38,14 +43,10 @@ metadata:
     - ultralytics
     - video-analytics
     - pytorch
-compatibility:
-  - claude-code
-  - opencode
-  - codex
-  - cursor
-  - cline
-  - roo-code
-  - windsurf
+compatibility: >
+  Compatible with Claude Code, OpenCode, Codex, Cursor, Cline, Roo Code,
+  Windsurf, Gemini CLI, and Kiro CLI. Requires Linux with AMD ROCm or
+  NVIDIA CUDA GPU (CPU fallback supported).
 ---
 
 # PPE Detection Pipeline — ROCm / CUDA / CPU
@@ -960,3 +961,9 @@ python3 scripts/ppe-pipeline.py --benchmark-detailed
 - **Multi-GPU**: Distribuir cámaras entre GPUs manualmente con `--device "cuda:0,cuda:1"`. No hay balanceo automático.
 - **Tracking**: El IoU matching simple funciona bien para ≤10 personas por frame. Para más, considerar ByteTrack o BoT-SORT.
 - **Persistencia de alertas**: Usar `alert-manager.py` como servicio independiente para no perder alertas si el pipeline se cae.
+
+## Related Skills
+
+- [`ds132-compliance`](../ds132-compliance/SKILL.md) — DS 132 compliance for Chilean mining regulations
+- [`yolo-rocm-deploy`](../yolo-rocm-deploy/SKILL.md) — YOLO object detection on ROCm/CUDA
+- [`video-pipeline-rocm`](../video-pipeline-rocm/SKILL.md) — Video inference pipelines with GStreamer

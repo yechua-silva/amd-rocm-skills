@@ -2,7 +2,7 @@
 
 Catálogo completo de imágenes Docker oficiales para AMD ROCm y NVIDIA CUDA,
 incluyendo imágenes de frameworks populares (PyTorch, vLLM) y las imágenes
-específicas del proyecto Munin.
+específicas para tu proyecto.
 
 ---
 
@@ -187,15 +187,15 @@ docker run --rm --runtime nvidia --gpus all \
 
 ---
 
-## 3. Imágenes Munin (Referencia)
+## 3. Imágenes Personalizadas (Referencia)
 
-Imágenes personalizadas del proyecto Munin para entornos con GPUs AMD.
+Imágenes personalizadas para entornos con GPUs AMD.
 
 | Imagen | Base | Descripción | Estatus |
 |--------|------|-------------|:-------:|
-| `munin/vllm-rocm` | `vllm/vllm-openai-rocm:latest` | vLLM + ROCm + configuraciones Munin | En desarrollo |
-| `munin/yolo-rocm` | `rocm/pytorch:rocm7.2.4_ubuntu24.04_py3.12_pytorch_2.10.0` | YOLOv8x + PyTorch ROCm para detección de objetos | En desarrollo |
-| `munin/app` | multi-stage (base/cuda/rocm/cpu) | App multi-backend Munin | Planificado |
+| `rocm-vllm` | `vllm/vllm-openai-rocm:latest` | vLLM + ROCm + configuraciones personalizadas | En desarrollo |
+| `rocm-yolo` | `rocm/pytorch:rocm7.2.4_ubuntu24.04_py3.12_pytorch_2.10.0` | YOLOv8x + PyTorch ROCm para detección de objetos | En desarrollo |
+| `rocm-app` | multi-stage (base/cuda/rocm/cpu) | App multi-backend | Planificado |
 
 ---
 

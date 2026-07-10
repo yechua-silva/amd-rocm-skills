@@ -39,7 +39,7 @@ Configuraciones recomendadas para modelos LLM y VLM en vLLM según el backend di
 
 ### InternVL2-8B
 
-Modelo por defecto de Munin. Balance óptimo entre capacidad y VRAM.
+Modelo por defecto. Balance óptimo entre capacidad y VRAM.
 
 **ROCm:**
 ```bash

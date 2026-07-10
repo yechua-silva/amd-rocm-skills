@@ -13,11 +13,18 @@ description: >
   oficina, mantención) con umbrales de confianza ajustables. Compatible con
   faenas multi-site y distingue personal visitante de trabajador. Multi-GPU
   ROCm/CUDA con ppe-detection-pipeline. Almacenamiento SQLite para histórico de
-  infracciones y tendencias. Exportación a formatos SERNAGEOMIN.
+  infracciones y tendencias. Exportación a formatos SERNAGEOMIN. Use this skill
+  when checking DS 132 compliance, auditing PPE requirements by zone, or
+  generating compliance reports for Chilean mining operations. / Útil al
+  verificar cumplimiento DS 132, auditar EPP por zona, o generar reportes de
+  compliance. Keywords: ds 132,
+  decreto supremo 132, mining compliance chile, epp compliance,
+  ppe regulations, seguridad minera, normativa chilena, sernageomin, ds132,
+  occupational safety, mining regulations, chilean mining law
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
-  author: "Munin Project"
+  version: "1.1.0"
+  author: "yechua-silva"
   tags:
     - amd
     - rocm
@@ -37,14 +44,10 @@ metadata:
     - reporting
     - zona-riesgo
     - normativa-chilena
-compatibility:
-  - claude-code
-  - opencode
-  - codex
-  - cursor
-  - cline
-  - roo-code
-  - windsurf
+compatibility: >
+  Compatible with Claude Code, OpenCode, Codex, Cursor, Cline, Roo Code,
+  Windsurf, Gemini CLI, and Kiro CLI. Requires Linux with AMD ROCm or
+  NVIDIA CUDA GPU (CPU fallback supported).
 ---
 
 # DS 132 Compliance — Normativa Minera Chilena
@@ -577,7 +580,7 @@ Toda faena debe mantener un registro actualizado de accidentes e incidentes, dis
 | Document | Description |
 |----------|-------------|
 | [references/ds132-summary.md](references/ds132-summary.md) | Resumen completo del DS 132: artículos clave, tabla de infracciones, multas, proceso de fiscalización SERNAGEOMIN, enlaces oficiales |
-| [references/compliance-standards.md](references/compliance-standards.md) | Estándares chilenos relacionados (NCh 461, NCh 1411, NCh 1436, DS 594, Ley 16.744), equivalentes internacionales (OSHA, ISO 45001), mapeo de clases PPE Munin a normativa chilena |
+| [references/compliance-standards.md](references/compliance-standards.md) | Estándares chilenos relacionados (NCh 461, NCh 1411, NCh 1436, DS 594, Ley 16.744), equivalentes internacionales (OSHA, ISO 45001), mapeo de clases PPE the application a normativa chilena |
 | [references/integration-guide.md](references/integration-guide.md) | Guía de integración con sistemas existentes: SCADA, acceso, reloj control, API REST, MQTT, formato SERNAGEOMIN, privacidad Ley 19.628 |
 
 ## Scripts
@@ -837,3 +840,8 @@ python3 scripts/audit-log.py \
 - **Zona "desconocida"**: Si una detección no tiene zona asignada, se evalúa con los requisitos más restrictivos (todas las zonas) o se ignora, según configuración.
 - **Tolerancia de ventana**: Para evitar falsos positivos por trabajadores que están transitando entre zonas, se puede configurar una ventana de tolerancia (ej: 30 segundos) antes de evaluar compliance en una zona nueva.
 - **Formato SERNAGEOMIN**: El reporte JSON sigue el formato esperado por SERNAGEOMIN para fiscalización electrónica. Ver `references/integration-guide.md` para el schema completo.
+
+## Related Skills
+
+- [`ppe-detection-pipeline`](../ppe-detection-pipeline/SKILL.md) — PPE detection for mining safety
+- [`rocm-troubleshoot`](../rocm-troubleshoot/SKILL.md) — Diagnostics and troubleshooting

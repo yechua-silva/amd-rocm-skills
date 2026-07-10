@@ -2,7 +2,7 @@
 
 Base de datos de errores comunes en el ecosistema AMD ROCm, organizados
 por componente. Cada error incluye código/mensaje, causa raíz, solución y
-skill relacionada del catálogo Munin.
+skill relacionada del catálogo.
 
 > **Prioridad**: MI300X (gfx942), ROCm 7.2.x, PyTorch 2.4+, vLLM 0.6+.
 

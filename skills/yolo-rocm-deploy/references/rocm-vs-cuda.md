@@ -211,8 +211,8 @@ print(f"Running on {backend.upper()}: {device_name} (v{version})")
 
 | Scenario | Recommended Platform | Reasoning |
 |----------|---------------------|-----------|
-| Munin PPE detection (production) | AMD MI300X (~$15k) | 192 GB VRAM for multiple models + ensembles; competitive FPS; best VRAM/$ |
-| Munin PPE detection (dev) | NVIDIA RTX 4090 (~$1.6k) | CUDA maturity, great tooling, fast iteration |
+| PPE detection (production) | AMD MI300X (~$15k) | 192 GB VRAM for multiple models + ensembles; competitive FPS; best VRAM/$ |
+| PPE detection (dev) | NVIDIA RTX 4090 (~$1.6k) | CUDA maturity, great tooling, fast iteration |
 | High-throughput API serving | NVIDIA H100 | Max FPS, TensorRT, Triton ecosystem |
 | Large model research | AMD MI300X | 192 GB fits models that H100 cannot |
 | Edge deployment | NVIDIA Jetson / AMD Ryzen AI | ROCm support limited on consumer GPUs; CUDA has wider edge support |

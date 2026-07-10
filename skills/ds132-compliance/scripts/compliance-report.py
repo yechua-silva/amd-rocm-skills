@@ -439,7 +439,7 @@ def generar_reporte_pdf(metrics, zonas_config, output_path, company, site, perio
 
         <div class="footer">
             <p>
-                Reporte generado por Munin DS 132 Compliance v{{ version }}<br>
+                Reporte generado por DS 132 Compliance v{{ version }}<br>
                 {{ company }} — {{ site }} | {{ fecha_generacion }}
             </p>
             <p>
@@ -608,7 +608,7 @@ def generar_reporte_html(metrics, zonas_config, output_path, company, site, peri
 
     html += f"""
     <footer>
-        Reporte generado por <strong>Munin DS 132 Compliance v{VERSION}</strong><br>
+        Reporte generado por <strong>DS 132 Compliance v{VERSION}</strong><br>
         {company} — {site} | {datetime.now().strftime("%d/%m/%Y %H:%M")}<br>
         <small>Preparado para fiscalización SERNAGEOMIN — DS 132 Ministerio de Minería de Chile</small>
     </footer>

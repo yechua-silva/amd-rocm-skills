@@ -357,7 +357,7 @@ mkdir -p "$OUTPUT"
 # ── Run Pipeline ────────────────────────────────────────────────────────────
 
 echo "╔══════════════════════════════════════════════════════════╗"
-echo "║  Munin — GStreamer Video Pipeline                       ║"
+echo "║  AMD ROCm — GStreamer Video Pipeline                       ║"
 echo "╚══════════════════════════════════════════════════════════╝"
 echo ""
 echo "  Source:    ${SOURCE}"

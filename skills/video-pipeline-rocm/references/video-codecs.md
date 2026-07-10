@@ -190,11 +190,11 @@ No hay límite de resolución en software más allá de la capacidad de la CPU:
 
 ---
 
-## 5. Recomendaciones para Munin
+## 5. Recomendaciones
 
 ### 5.1 Mejor Calidad/Bitrate — H.265 (HEVC)
 
-**Recomendado** para la mayoría de casos de uso en Munin:
+**Recomendado** para la mayoría de casos de uso:
 
 ```bash
 # AMD VCN — decode H.264, encode H.265

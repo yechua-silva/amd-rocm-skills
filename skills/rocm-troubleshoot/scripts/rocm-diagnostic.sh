@@ -93,7 +93,7 @@ print(json.dumps(r))
 # ── Banner ─────────────────────────────────────────────────
 [ "$MODE" != "--json" ] && [ "$MODE" != "--quiet" ] && echo "
 ╔══════════════════════════════════════════════════════════╗
-║      ROCm Master Diagnostic — Munin Troubleshoot        ║
+║      ROCm Master Diagnostic — AMD ROCm Troubleshoot        ║
 ║      GPU ROCm + NVIDIA CUDA + CPU fallback              ║
 ╚══════════════════════════════════════════════════════════╝
 "
@@ -343,11 +343,11 @@ if command -v docker &>/dev/null; then
     if $KFD_EXISTS && $DRI_EXISTS; then
         log_info "Ejecutando test de contenedor ROCm..."
         if docker run --rm --device=/dev/kfd --device=/dev/dri --group-add=video \
-            rocm/dev-ubuntu-22.04:latest rocminfo &>/tmp/munin-diag-rocm-test.log; then
+            rocm/dev-ubuntu-22.04:latest rocminfo &>/tmp/rocm-diag-test.log; then
             log_ok "Test contenedor ROCm: OK"
             json_add "docker_rocm_test" "passed" "docker"
         else
-            log_warn "Test contenedor ROCm falló (ver /tmp/munin-diag-rocm-test.log)"
+            log_warn "Test contenedor ROCm falló (ver /tmp/rocm-diag-test.log)"
             json_warn "docker_rocm_test" "ROCm container test failed"
         fi
     else

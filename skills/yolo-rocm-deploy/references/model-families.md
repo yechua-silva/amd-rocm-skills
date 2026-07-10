@@ -14,7 +14,7 @@ NVIDIA CUDA, and CPU (with varying performance).
 | **YOLOv8s** | 11.2 | 44.9 | 22 | 3.2 | 2.0 | Lightweight deployment, mobile, embedded |
 | **YOLOv8m** | 25.9 | 50.2 | 40 | 5.8 | 3.5 | Balanced accuracy/speed, general purpose |
 | **YOLOv8l** | 43.7 | 52.9 | 65 | 9.1 | 5.0 | High accuracy, server-side batch inference |
-| **YOLOv8x** | 68.2 | 53.9 | 95 | 14.0 | 7.2 | Maximum accuracy, Munin PPE detection |
+| **YOLOv8x** | 68.2 | 53.9 | 95 | 14.0 | 7.2 | Maximum accuracy, PPE detection |
 | **YOLO11n** | 2.6 | 39.5 | 10 | 1.5 | 1.0 | Edge, lighter than v8n with better mAP |
 | **YOLO11s** | 9.4 | 47.0 | 18 | 2.8 | 1.8 | Lightweight, improved over v8s |
 | **YOLO11m** | 20.1 | 52.3 | 34 | 5.0 | 3.2 | Strong balance, 23% fewer params than v8m |
@@ -30,7 +30,7 @@ NVIDIA CUDA, and CPU (with varying performance).
 - **VRAM**: Approximate GPU memory usage at FP32 precision. Use FP16 (`model.half()`) to halve VRAM requirements.
 - All models default to 640×640 input resolution. Larger resolutions (e.g., 1280×1280) improve accuracy but increase latency and VRAM proportionally.
 
-## Recommended Model for Munin PPE Detection
+## Recommended Model for PPE Detection
 
 ### YOLOv8x (primary)
 

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "groupings": [
+    {
+      "title": "Core",
+      "description": "AMD ROCm setup, Docker, and model deployment skills.",
+      "skills": ["rocm-setup", "rocm-docker", "vllm-rocm-deploy", "yolo-rocm-deploy"]
+    },
+    {
+      "title": "Pipeline",
+      "description": "Video processing, VLM inference, and GPU benchmarking pipelines.",
+      "skills": ["video-pipeline-rocm", "vlm-rocm-inference", "rocm-benchmark"]
+    },
+    {
+      "title": "Industrial",
+      "description": "PPE detection, mining compliance (DS 132), and GPU troubleshooting.",
+      "skills": ["ppe-detection-pipeline", "ds132-compliance", "rocm-troubleshoot"]
+    }
+  ]
+}

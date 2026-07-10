@@ -55,7 +55,7 @@ def publicar_alerta_scada(alerta, url_scada="opc.tcp://scada.faena:4840"):
     client = Client(url_scada)
     client.connect()
     try:
-        node = client.get_node("ns=2;s=Munin.Compliance.Alerts")
+        node = client.get_node("ns=2;s=Compliance.Alerts")
         node.set_value(str(json.dumps(alerta)))
     finally:
         client.disconnect()
@@ -264,10 +264,10 @@ en tiempo real.
 
 | Tópico | QoS | Payload | Frecuencia |
 |--------|-----|---------|------------|
-| `munin/compliance/alerta` | 2 | Alerta JSON | Por evento (infracción) |
-| `munin/compliance/zona/{zona_id}` | 1 | Compliance actualizado | Cada 60s |
-| `munin/compliance/persona/{persona_id}` | 1 | Infracción detectada | Por evento |
-| `munin/compliance/resumen` | 0 | Resumen diario | Cada hora |
+| `rocm/compliance/alerta` | 2 | Alerta JSON | Por evento (infracción) |
+| `rocm/compliance/zona/{zona_id}` | 1 | Compliance actualizado | Cada 60s |
+| `rocm/compliance/persona/{persona_id}` | 1 | Infracción detectada | Por evento |
+| `rocm/compliance/resumen` | 0 | Resumen diario | Cada hora |
 
 ### Ejemplo: Publicar Alertas vía MQTT
 
@@ -279,7 +279,7 @@ def publicar_alerta(alerta, broker="mqtt.faena.cl", port=1883):
     client = mqtt.Client()
     client.connect(broker, port, 60)
     
-    topic = f"munin/compliance/alerta"
+    topic = f"rocm/compliance/alerta"
     payload = json.dumps(alerta, ensure_ascii=False)
     
     client.publish(topic, payload, qos=2)
@@ -312,7 +312,7 @@ def on_message(client, userdata, msg):
 client = mqtt.Client()
 client.on_message = on_message
 client.connect("mqtt.faena.cl", 1883, 60)
-client.subscribe("munin/compliance/alerta", qos=2)
+client.subscribe("rocm/compliance/alerta", qos=2)
 client.loop_forever()
 ```
 
@@ -341,7 +341,7 @@ El sistema de compliance puede exportar reportes en el formato esperado.
     "periodo_inicio": "2026-06-01",
     "periodo_fin": "2026-06-27",
     "fecha_generacion": "2026-06-27T18:00:00-04:00",
-    "sistema": "Munin DS 132 Compliance v1.0.0"
+    "sistema": "DS 132 Compliance v1.0.0"
   },
   "cumplimiento_global": {
     "total_evaluaciones": 15420,

@@ -20,7 +20,7 @@ El pipeline `ppe-detection-pipeline` espera datasets en **formato YOLO** con 6 c
 | **Entornos** | Construcción, almacenes, exterior |
 | **Licencia** | CC BY 4.0 |
 
-**Notas**: Dataset general de EPP con cobertura parcial para minería. Las clases mask y ear_protection no se usan en Munin. Requiere conversión de COCO a YOLO.
+**Notas**: Dataset general de EPP con cobertura parcial para minería. Las clases mask y ear_protection no se usan. Requiere conversión de COCO a YOLO.
 
 ### 2. Hard Hat Workers Dataset (Makesense.ai)
 
@@ -172,7 +172,7 @@ def coco_to_yolo(coco_path, output_dir, img_width, img_height):
                 f.write(f"{cat_id} {x_center:.6f} {y_center:.6f} {bw_norm:.6f} {bh_norm:.6f}\n")
 ```
 
-## Clases Recomendadas para Munin
+## Clases Recomendadas
 
 | ID | Clase | Elemento | Prioridad | Dataset principal | Dataset complementario |
 |----|-------|----------|-----------|-------------------|----------------------|

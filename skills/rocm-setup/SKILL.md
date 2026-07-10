@@ -12,8 +12,8 @@ description: >
   detect-gpu, rocm-smi, rocminfo, cuda, check-rocm
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
-  author: "Munin Project"
+  version: "1.1.0"
+  author: "yechua-silva"
   tags:
     - amd
     - rocm
@@ -23,12 +23,10 @@ metadata:
     - detect
     - pytorch
     - hip
-compatibility:
-  - claude-code
-  - opencode
-  - codex
-  - cursor
-  - "Requiere Linux Ubuntu 22.04/24.04 con GPU AMD o NVIDIA y acceso root para instalación de drivers."
+compatibility: >
+  Compatible with Claude Code, OpenCode, Codex, Cursor, Cline, Roo Code,
+  Windsurf, Gemini CLI, and Kiro CLI. Requires Linux Ubuntu 22.04/24.04
+  with AMD or NVIDIA GPU and root access for driver installation.
 ---
 
 # ROCm Setup Skill
@@ -115,7 +113,7 @@ The script scans in three levels:
 **Example output (AMD ROCm):**
 ```
 ============================================================
-  MUNIN — GPU Detection Report
+  GPU Detection Report
 ============================================================
   Estado:    ✅ GPU DETECTADA
   Backend:   ROCM
@@ -132,7 +130,7 @@ The script scans in three levels:
 **Example output (CPU only):**
 ```
 ============================================================
-  MUNIN — GPU Detection Report
+  GPU Detection Report
 ============================================================
   Estado:    ⚠️  SOLO CPU
   Backend:   CPU
@@ -352,5 +350,11 @@ print('🎯 All smoke tests passed!')
 
 - **Cause**: Incorrect override value or incompatible GPU architecture.
 - **Solution**: Remove the override or set the correct value for your GPU.
-  See [references/supported-gpus.md](references/supported-gpus.md) for
-  architecture mappings.  Prefer an official ROCm release when available.
+   See [references/supported-gpus.md](references/supported-gpus.md) for
+   architecture mappings.  Prefer an official ROCm release when available.
+
+## Related Skills
+
+- [`rocm-docker`](../rocm-docker/SKILL.md) — Docker with AMD GPU passthrough
+- [`rocm-troubleshoot`](../rocm-troubleshoot/SKILL.md) — Diagnostics and troubleshooting
+- [`rocm-benchmark`](../rocm-benchmark/SKILL.md) — GPU benchmarking and monitoring

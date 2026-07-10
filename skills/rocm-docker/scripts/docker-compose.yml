@@ -16,7 +16,7 @@
 services:
   # ── Servicio Base ────────────────────────────────────────────────────────────
   # Define la configuración común que comparten todos los perfiles.
-  munin-app:
+  rocm-app:
     build:
       context: .
       dockerfile: Dockerfile
@@ -36,8 +36,8 @@ services:
       - never
 
   # ── Perfil: NVIDIA CUDA ─────────────────────────────────────────────────────
-  munin-nvidia:
-    extends: munin-app
+  rocm-nvidia:
+    extends: rocm-app
     build:
       context: .
       dockerfile: Dockerfile
@@ -59,8 +59,8 @@ services:
       - nvidia
 
   # ── Perfil: AMD ROCm ────────────────────────────────────────────────────────
-  munin-rocm:
-    extends: munin-app
+  rocm-amd:
+    extends: rocm-app
     build:
       context: .
       dockerfile: Dockerfile
@@ -86,8 +86,8 @@ services:
       - rocm
 
   # ── Perfil: CPU Fallback ────────────────────────────────────────────────────
-  munin-cpu:
-    extends: munin-app
+  rocm-cpu:
+    extends: rocm-app
     build:
       context: .
       dockerfile: Dockerfile

@@ -631,7 +631,7 @@ def write_output(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Munin — Video Inference Pipeline (ROCm / CUDA / CPU)",
+        description="AMD ROCm — Video Inference Pipeline (ROCm / CUDA / CPU)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -705,7 +705,7 @@ def main() -> int:
 
     # ── Banner ──────────────────────────────────────────────────────────────
     print("╔══════════════════════════════════════════════════════════╗")
-    print("║  Munin — Video Inference Pipeline                       ║")
+    print("║  AMD ROCm — Video Inference Pipeline                       ║")
     print("║  ROCm | CUDA | CPU                                      ║")
     print("╚══════════════════════════════════════════════════════════╝")
     print("")

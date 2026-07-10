@@ -1,6 +1,6 @@
 # Guía de Formato Skills — Compatible con Múltiples Agentes
 
-> Documento consolidado de investigación Fase 0 para el proyecto Munin.
+> Documento consolidado de investigación Fase 0 para el your project.
 > Define el estándar de formato SKILL.md compatible con Claude Code, OpenCode, Codex y Cursor.
 
 ---
@@ -257,7 +257,7 @@ npx skills add . --list
 
 ### 4.3 Agentes Soportados
 
-El CLI soporta 68+ agentes. Los más relevantes para Munin:
+El CLI soporta 68+ agentes. Los más relevantes para the application:
 
 | Agente | Flag | Ruta de instalación |
 |--------|------|---------------------|
@@ -281,14 +281,14 @@ El CLI soporta 68+ agentes. Los más relevantes para Munin:
 
 ---
 
-## 5. Recomendaciones para Munin
+## 5. Recomendaciones para the application
 
 ### 5.1 Dirección Primaria
 
 Desarrollar skills en el directorio `skills/<name>/SKILL.md` dentro del repositorio:
 
 ```
-munin-skills/
+amd-rocm-skills/
 ├── skills/
 │   ├── rocm-setup/
 │   │   ├── SKILL.md

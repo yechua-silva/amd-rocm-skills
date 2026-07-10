@@ -41,3 +41,4 @@ htmlcov/
 # Temp
 *.log
 tmp/
+*.pyc

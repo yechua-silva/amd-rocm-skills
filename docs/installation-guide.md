@@ -1,6 +1,6 @@
-# Guía de Instalación de Skills Munin — Local y Multi-Agente
+# Guía de Instalación de Skills the application — Local y Multi-Agente
 
-> Documento consolidado de investigación Fase 0 para el proyecto Munin.
+> Documento consolidado de investigación Fase 0 para el your project.
 > Cubre instalación local, validación de formato, rutas por agente y troubleshooting.
 
 ---
@@ -10,7 +10,7 @@
 ### 1.1 Listar Skills del Proyecto
 
 ```bash
-# Desde la raíz de munin-skills/
+# Desde la raíz de amd-rocm-skills/
 npx skills add . --list
 
 # Salida esperada:
@@ -99,7 +99,7 @@ Esto hace que las skills estén disponibles en todos los agentes sin configuraci
 ```python
 #!/usr/bin/env python3
 """
-Validador de formato SKILL.md para skills de Munin.
+Validador de formato SKILL.md para skills de the application.
 Uso: python validate_skill.py <ruta-al-skill>
 Ejemplo: python validate_skill.py skills/rocm-setup
 """
@@ -356,10 +356,10 @@ Si la misma skill existe en múltiples rutas, gana la de mayor prioridad.
 
 ### 4.1 Paso 1: Desarrollar Skills en el Repo
 
-Todas las skills se desarrollan en `skills/<name>/SKILL.md` dentro del repositorio `munin-skills/`:
+Todas las skills se desarrollan en `skills/<name>/SKILL.md` dentro del repositorio `amd-rocm-skills/`:
 
 ```
-munin-skills/
+amd-rocm-skills/
 ├── skills/
 │   ├── rocm-setup/
 │   │   └── SKILL.md
@@ -397,17 +397,17 @@ npx skills add . -a claude-code -a opencode -a codex -a cursor --yes
 
 ```bash
 # 1. Subir repo a GitHub
-git remote add origin https://github.com/munin-org/munin-skills.git
+git remote add origin https://github.com/yechua-silva/amd-rocm-skills.git
 git push -u origin main
 
 # 2. El repositorio es detectado automáticamente por skills.sh
 #    skills.sh escanea repositorios GitHub con skills/ en la raíz
 
 # 3. Para publicación manual en skills.sh:
-#    https://skills.sh/add?repo=munin-org/munin-skills
+#    https://skills.sh/add?repo=yechua-silva/amd-rocm-skills
 
 # 4. Los usuarios pueden instalar directamente:
-npx skills add munin-org/munin-skills --skill rocm-setup
+npx skills add yechua-silva/amd-rocm-skills --skill rocm-setup
 ```
 
 ---
@@ -425,7 +425,7 @@ npx skills add . -a claude-code -a opencode -a codex --yes
 
 ```bash
 #!/bin/bash
-# install-all.sh — Instala todas las skills de Munin en todos los agentes
+# install-all.sh — Instala todas las skills de the application en todos los agentes
 # Uso: bash install-all.sh [--global]
 
 set -e
@@ -433,7 +433,7 @@ set -e
 MODE="${1:---local}"
 BASE_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-echo "🚀 Munin — Instalación de Skills"
+echo "🚀 the application — Instalación de Skills"
 echo "================================="
 echo "Modo: $MODE"
 echo "Repo: $BASE_DIR"
@@ -654,7 +654,7 @@ Usa `torch.cuda.is_available()` para detectar GPU.
 Para compatibilidad con Cursor, crear un symlink o copiar manualmente:
 
 ```bash
-# Convertir skill Munin a regla de Cursor
+# Convertir skill the application a regla de Cursor
 ln -s ../../skills/rocm-setup/SKILL.md .cursor/rules/rocm-setup.md
 ```
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-PPE Detection Pipeline — Munin Industrial Safety.
+PPE Detection Pipeline.
 
 Pipeline completo de detección de Elementos de Protección Personal (EPP) en
 video para minería e industria pesada. Usa YOLOv8x sobre ROCm/CUDA para detectar
@@ -1012,7 +1012,7 @@ def generate_dashboard(results: List[FrameResult], metadata: Dict[str, Any],
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PPE Compliance Dashboard — Munin</title>
+<title>PPE Compliance Dashboard</title>
 <style>
   * {{ margin: 0; padding: 0; box-sizing: border-box; }}
   body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -1089,7 +1089,7 @@ def generate_dashboard(results: List[FrameResult], metadata: Dict[str, Any],
     html += """</tbody>
 </table>
 <p style="margin-top: 16px; color: #8b949e; font-size: 12px;">
-  Generado por Munin PPE Detection Pipeline — """
+  Generado por AMD ROCm PPE Detection Pipeline — """
     html += f"{datetime.now().isoformat()}</p>"
     html += """</body>
 </html>
@@ -1522,7 +1522,7 @@ class PPEPipeline:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="PPE Detection Pipeline — Munin Industrial Safety",
+        description="PPE Detection Pipeline",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__,
     )

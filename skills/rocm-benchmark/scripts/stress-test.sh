@@ -135,7 +135,7 @@ detect_gpu() {
 
 BACKEND=$(detect_gpu)
 echo -e "${CYAN}╔══════════════════════════════════════════╗${NC}"
-echo -e "${CYAN}║     MUNIN — GPU Stress Test (${BACKEND})   ║${NC}"
+echo -e "${CYAN}║     AMD ROCm — GPU Stress Test (${BACKEND})   ║${NC}"
 echo -e "${CYAN}╚══════════════════════════════════════════╝${NC}"
 echo "  Duration:     ${DURATION}s"
 echo "  Matrix Size:  ${MATRIX_SIZE}x${MATRIX_SIZE}"

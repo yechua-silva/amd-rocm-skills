@@ -9,7 +9,7 @@ Tabla comparativa de modelos Vision-Language compatibles con inferencia PyTorch 
 | **PaliGemma-3B** | 2.9B | 8 GB | 18 GB | 224x224 | EN | [`google/paligemma-3b-mix-224`](https://huggingface.co/google/paligemma-3b-mix-224) | ✅ Excelente en ROCm, carga rápida, bajo VRAM |
 | **InternVL2-1B** | 1.0B | 4 GB | 8 GB | 448x448 | EN/ZH | [`OpenGVLab/InternVL2-1B`](https://huggingface.co/OpenGVLab/InternVL2-1B) | ✅ Ideal para CPU y GPUs pequeñas |
 | **InternVL2-4B** | 3.8B | 12 GB | 22 GB | 448x448 | EN/ZH | [`OpenGVLab/InternVL2-4B`](https://huggingface.co/OpenGVLab/InternVL2-4B) | ✅ Bueno para GPUs de 16GB |
-| **InternVL2-8B** | 8.1B | 22 GB | 40 GB | 448x448 | EN/ZH | [`OpenGVLab/InternVL2-8B`](https://huggingface.co/OpenGVLab/InternVL2-8B) | ⭐ **Recomendado Munin**, balance accuracy/VRAM |
+| **InternVL2-8B** | 8.1B | 22 GB | 40 GB | 448x448 | EN/ZH | [`OpenGVLab/InternVL2-8B`](https://huggingface.co/OpenGVLab/InternVL2-8B) | ⭐ **Recommended**, best accuracy/VRAM balance |
 | **InternVL2-26B** | 25.6B | 52 GB | 96 GB | 448x448 | EN/ZH | [`OpenGVLab/InternVL2-26B`](https://huggingface.co/OpenGVLab/InternVL2-26B) | ⚠️ Requiere MI300X o multi-GPU |
 | **LLaVA 1.6 Mistral 7B** | 7.0B | 20 GB | 38 GB | 336x336 | EN | [`llava-hf/llava-v1.6-mistral-7b-hf`](https://huggingface.co/llava-hf/llava-v1.6-mistral-7b-hf) | ✅ Bueno en ROCm, comunidad grande |
 | **LLaVA 1.6 13B** | 13B | 28 GB | 52 GB | 336x336 | EN | [`llava-hf/llava-v1.6-vicuna-13b-hf`](https://huggingface.co/llava-hf/llava-v1.6-vicuna-13b-hf) | ⚠️ Requiere 32GB+ VRAM |
@@ -47,7 +47,7 @@ La VRAM indicada arriba es para **inferencia básica** (max_new_tokens=256, batc
 
 | Modelo | Recomendación | max_new_tokens | Imagen |
 |--------|:------------:|:--------------:|:------:|
-| InternVL2-8B | ⭐ **Recomendado Munin** | ≤ 512 | ≤ 1024px |
+| InternVL2-8B | ⭐ **Recommended** | ≤ 512 | ≤ 1024px |
 | LLaVA 1.6 7B | ✅ Bueno si prefieres LLaVA | ≤ 512 | ≤ 768px |
 | Qwen2-VL-7B | ✅ Excelente multilingüe | ≤ 256 | ≤ 768px |
 | InternVL2-4B | ✅ Alternativa más ligera | ≤ 1024 | ≤ 2048px |
@@ -73,7 +73,7 @@ La VRAM indicada arriba es para **inferencia básica** (max_new_tokens=256, batc
 | Qwen2-VL-72B | ✅ El más capaz | ≤ 1024 | ≤ 2048px |
 | LLaVA 13B | ✅ Bueno | ≤ 4096 | ≤ 2048px |
 
-## Recomendación Munin
+## Recommendation
 
 **InternVL2-8B** es el modelo recomendado por defecto por:
 

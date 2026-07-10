@@ -12,8 +12,8 @@ description: >
   multi-gpu, compose, pytorch, vllm, mi300, mi250, instinct, radeon
 license: Apache-2.0
 metadata:
-  version: "1.0.0"
-  author: "Munin Project"
+  version: "1.1.0"
+  author: "yechua-silva"
   tags:
     - amd
     - rocm
@@ -26,12 +26,10 @@ metadata:
     - preflight
     - pytorch
     - vllm
-compatibility:
-  - claude-code
-  - opencode
-  - codex
-  - cursor
-  - "Requiere Docker Engine 24+ y Linux host con GPU."
+compatibility: >
+  Compatible with Claude Code, OpenCode, Codex, Cursor, Cline, Roo Code,
+  Windsurf, Gemini CLI, and Kiro CLI. Requires Docker Engine 24+ and Linux
+  host with AMD ROCm or NVIDIA CUDA GPU.
 ---
 
 # ROCm Docker Skill
@@ -129,7 +127,7 @@ docker run --rm \
 docker run --rm \
   --device=/dev/kfd --device=/dev/dri --group-add=render \
   -e BACKEND=auto \
-  munin/app:latest
+  your-app:latest
 ```
 
 ### 4. Docker Compose Multi-Perfil
@@ -264,13 +262,13 @@ Usa `references/multi-gpu-dockerfile.md` como referencia para construir imágene
 
 ```bash
 # Construir para NVIDIA
-docker build --target cuda -t munin-app:cuda .
+docker build --target cuda -t your-app:cuda .
 
 # Construir para AMD
-docker build --target rocm -t munin-app:rocm .
+docker build --target rocm -t your-app:rocm .
 
 # Construir para CPU
-docker build --target cpu -t munin-app:cpu .
+docker build --target cpu -t your-app:cpu .
 ```
 
 ### 6. Smoke Test
@@ -395,7 +393,7 @@ docker pull rocm/pytorch:rocm7.2.4_ubuntu24.04_py3.12_pytorch_2.10.0
 
 ### Issue 5: Docker compose —profile no reconoce el perfil
 
-**Síntoma:** `WARNING: Some services (munin-nvidia) use the 'deploy' key, which will be ignored. Compose does not support 'deploy' configuration.`
+**Síntoma:** `WARNING: Some services (app-nvidia) use the 'deploy' key, which will be ignored. Compose does not support 'deploy' configuration.`
 
 **Causa:** Usar `docker-compose` (v1) en lugar de `docker compose` (v2).
 
@@ -449,4 +447,10 @@ docker run --rm \
   -e ROCR_VISIBLE_DEVICES=0 \
   rocm/dev-ubuntu-22.04:latest \
   rocminfo
+
+## Related Skills
+
+- [`rocm-setup`](../rocm-setup/SKILL.md) — ROCm installation and verification
+- [`vllm-rocm-deploy`](../vllm-rocm-deploy/SKILL.md) — vLLM deployment on ROCm/CUDA
+- [`yolo-rocm-deploy`](../yolo-rocm-deploy/SKILL.md) — YOLO object detection on ROCm/CUDA
 ```

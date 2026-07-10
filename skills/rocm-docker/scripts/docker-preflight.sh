@@ -76,7 +76,7 @@ print(json.dumps(report))
 
 [ "$MODE" != "--json" ] && [ "$MODE" != "--quiet" ] && echo "
 ╔══════════════════════════════════════════════════════════╗
-║     Munin — Docker GPU Preflight Check                  ║
+║     AMD ROCm — Docker GPU Preflight Check                  ║
 ║     AMD ROCm + NVIDIA CUDA + CPU fallback               ║
 ╚══════════════════════════════════════════════════════════╝
 "
@@ -246,13 +246,13 @@ if $DOCKER_OK; then
         log_info "Testeando contenedor NVIDIA..."
         if docker run --rm --runtime nvidia --gpus all \
             nvidia/cuda:12.6.3-runtime-ubuntu22.04 \
-            nvidia-smi --query-gpu=name --format=csv,noheader &> /tmp/munin-nvidia-test.log; then
-            NVIDIA_TEST=$(cat /tmp/munin-nvidia-test.log | head -1)
+            nvidia-smi --query-gpu=name --format=csv,noheader &> /tmp/rocm-nvidia-test.log; then
+            NVIDIA_TEST=$(cat /tmp/rocm-nvidia-test.log | head -1)
             log_ok "Test NVIDIA OK: $NVIDIA_TEST"
             json_set_backend "nvidia" "container_test" "passed"
             json_add_check "ok" "nvidia-container-test" "NVIDIA container test passed: $NVIDIA_TEST"
         else
-            log_error "Test NVIDIA FALLÓ. Log: /tmp/munin-nvidia-test.log"
+            log_error "Test NVIDIA FALLÓ. Log: /tmp/rocm-nvidia-test.log"
             json_set_backend "nvidia" "container_test" "failed"
             json_add_error "NVIDIA container test failed"
         fi
@@ -265,13 +265,13 @@ if $DOCKER_OK; then
         log_info "Testeando contenedor AMD ROCm..."
         if docker run --rm --device=/dev/kfd --device=/dev/dri --group-add=video \
             rocm/dev-ubuntu-22.04:latest \
-            rocminfo &> /tmp/munin-rocm-test.log; then
-            ROCM_LINE=$(grep "Name:" /tmp/munin-rocm-test.log | head -1 | xargs || echo "GPU detectada")
+            rocminfo &> /tmp/rocm-amd-test.log; then
+            ROCM_LINE=$(grep "Name:" /tmp/rocm-amd-test.log | head -1 | xargs || echo "GPU detectada")
             log_ok "Test ROCm OK: $ROCM_LINE"
             json_set_backend "rocm" "container_test" "passed"
             json_add_check "ok" "rocm-container-test" "ROCm container test passed"
         else
-            log_error "Test ROCm FALLÓ. Log: /tmp/munin-rocm-test.log"
+            log_error "Test ROCm FALLÓ. Log: /tmp/rocm-amd-test.log"
             json_set_backend "rocm" "container_test" "failed"
             json_add_error "ROCm container test failed"
         fi
