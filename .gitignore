@@ -20,6 +20,24 @@ venv/
 .vscode/
 .idea/
 
+# Secrets
+.env
+*.key
+*.pem
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Cache
+.mypy_cache/
+.ruff_cache/
+
 # Temp
 *.log
 tmp/
