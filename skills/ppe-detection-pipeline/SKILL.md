@@ -1,24 +1,19 @@
 ---
 name: ppe-detection-pipeline
 description: >
-  Pipeline de detección de EPP (Elementos de Protección Personal) en video para
-  minería e industria. Usa YOLOv8x sobre ROCm/CUDA para detectar casco (hardhat),
-  chaleco reflectante (safety_vest), guantes (gloves), lentes (safety_glasses) y
-  botas (safety_boots) en tiempo real sobre RTSP, archivos o cámaras USB.
-  Tracking de personas con asignación de EPP, alertas por EPP faltante vía
-  webhook/MQTT/log, dashboard de cumplimiento, video anotado (verde=OK, rojo=falta)
-  y JSON por frame. Multi-cámara con threads, multi-GPU, benchmark FPS/latencia.
-  Fine-tuning YOLOv8x con data augmentation para minería (polvo, baja luz).
-  Alertas con rate limiting y umbrales por zona. Integrable con SCADA. AMD ROCm
-  (MI300X, RX 7900) y NVIDIA CUDA (A100, H100, RTX). Use this skill when
-  building PPE detection systems for mining, detecting hardhats/safety vests in
-  video, or setting up industrial safety compliance monitoring. / Útil al
-  construir sistemas de detección de EPP para minería, detectar cascos/chalecos
-  en video, o configurar monitoreo de cumplimiento de seguridad industrial.
-  Keywords: ppe detection,
-  epp, deteccion elementos proteccion, casco seguridad, hardhat detection, chaleco
-  reflectante, safety gear, mining safety, industrial surveillance, yolo, rocm,
-  cuda, tracking, video analytics, seguridad minera, mineria, industrial safety.
+  Pipeline de detección de EPP en video para minería e industria. Usa YOLOv8x
+  sobre ROCm/CUDA para detectar casco, chaleco, guantes, lentes y botas en
+  tiempo real sobre RTSP, archivos o USB. Tracking de personas con asignación de
+  EPP, alertas vía webhook/MQTT/log, video anotado y JSON. Multi-cámara,
+  multi-GPU, fine-tuning con data augmentation para minería. AMD ROCm y
+  NVIDIA CUDA. Use this skill when building PPE detection systems for mining,
+  detecting hardhats/safety vests in video, or setting up industrial safety
+  compliance monitoring. / Útil al construir sistemas de detección de EPP para
+  minería, detectar cascos/chalecos en video, o configurar monitoreo de
+  cumplimiento. Keywords: ppe detection, epp, deteccion elementos proteccion,
+  casco seguridad, hardhat detection, chaleco reflectante, safety gear, mining
+  safety, industrial surveillance, yolo, rocm, cuda, tracking, video analytics,
+  seguridad minera, mineria, industrial safety.
 license: Apache-2.0
 metadata:
   version: "1.1.0"

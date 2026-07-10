@@ -1,24 +1,19 @@
 ---
 name: video-pipeline-rocm
 description: >
-  Pipeline completo de inferencia sobre video en tiempo real o batch usando
-  GStreamer + ROCm. Captura video desde RTSP, archivos locales o cámara (v4l2),
-  decodifica con aceleración HW (AMD VCN / NVIDIA NVDEC / CPU fallback),
-  extrae frames, ejecuta inferencia con YOLO/VLM en GPU AMD ROCm o NVIDIA CUDA,
-  y produce resultados como JSON, video anotado o RTMP push. Multi-backend:
-  AMD ROCm (VAAPI/VCN/AMF), NVIDIA CUDA (NVENC/NVDEC), CPU (avdec/soft).
-  Incluye detección automática de backend, preprocesamiento de frames,
-  inferencia batch optimizada, y post-procesamiento con bounding boxes/tracking.
-  Usar al procesar streams RTSP con modelos de IA, transcodificar video con
-  aceleración HW, extraer frames por scene change, o construir pipelines
-  video-inferencia multi-GPU. Use this skill when building video inference
-  pipelines with GStreamer, processing RTSP streams with YOLO, or extracting
-  frames with hardware acceleration. / Útil al construir pipelines de inferencia
-  de video con GStreamer, procesar streams RTSP con YOLO, o extraer frames con
-  aceleración hardware. Keywords: gstreamer, rocm, video, pipeline,
-  inference, vcn, amd, nvidia, cuda, rtsp, transcoding, yolo, vlm, frame-extraction,
-  video-analytics, vaapi, nvdec, hw-acceleration, video-decode, streaming,
-  computer-vision, pytorch, hip, gpu-video, v4l2, appsink
+  Pipeline de inferencia sobre video en tiempo real o batch usando GStreamer +
+  ROCm/CUDA. Captura video desde RTSP, archivos o cámara, decodifica con
+  aceleración HW (AMD VCN / NVIDIA NVDEC / CPU), extrae frames, ejecuta
+  inferencia con YOLO/VLM, produce JSON, video anotado o RTMP push.
+  Multi-backend con detección automática, preprocesamiento, inferencia batch.
+  Use this skill when building video inference pipelines with GStreamer,
+  processing RTSP streams with YOLO, or extracting frames with hardware
+  acceleration. / Útil al construir pipelines de inferencia de video con
+  GStreamer, procesar streams RTSP con YOLO, o extraer frames con aceleración
+  hardware. Keywords: gstreamer, rocm, video, pipeline, inference, vcn, amd,
+  nvidia, cuda, rtsp, transcoding, yolo, vlm, frame-extraction, video-analytics,
+  vaapi, nvdec, hw-acceleration, video-decode, streaming, computer-vision,
+  pytorch, hip, gpu-video, v4l2, appsink
 license: Apache-2.0
 metadata:
   version: "1.1.0"
