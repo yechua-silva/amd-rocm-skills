@@ -1,16 +1,19 @@
 # 🚀 AMD ROCm Agent Skills
 
-> The first open-source collection of agent skills for AMD ROCm GPU workloads. Compatible with 9+ AI coding agents.
+> The first open-source collection of agent skills for AMD ROCm GPU workloads. Compatible with 9+ AI coding agents. Validated on skills.sh.
 
-[![skills.sh](https://skills.sh/b/yechua-silva/amd-rocm-skills)](https://skills.sh/yechua-silva/amd-rocm-skills)
 [![Skills](https://img.shields.io/badge/skills-10-green)]()
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)]()
 [![GPU](https://img.shields.io/badge/GPU-AMD%20ROCm-red)]()
 [![Agents](https://img.shields.io/badge/agents-9%2B-compatible)]()
+[![skills.sh](https://img.shields.io/badge/skills.sh-validated-brightgreen)]()
+[![Python](https://img.shields.io/badge/python-3.10+-blue)]()
 
 ## Why?
 
-NVIDIA has 428+ agent skills on [skills.sh](https://skills.sh). AMD has **zero**. This repo fills that gap with 10 production-ready skills for AMD ROCm GPU workloads — from setup to deployment to industrial safety.
+NVIDIA has 428+ agent skills on [skills.sh](https://skills.sh). AMD had **zero**. This repo fills that gap with 10 production-ready skills for AMD ROCm GPU workloads — from setup to deployment to industrial safety.
+
+> **Validated**: `npx skills add yechua-silva/amd-rocm-skills --list` returns all 10 skills.
 
 ## Skills
 
@@ -39,6 +42,18 @@ NVIDIA has 428+ agent skills on [skills.sh](https://skills.sh). AMD has **zero**
 | 9 | [`ds132-compliance`](skills/ds132-compliance/SKILL.md) | DS 132 mining compliance (Chile) |
 | 10 | [`rocm-troubleshoot`](skills/rocm-troubleshoot/SKILL.md) | Diagnostics and troubleshooting |
 
+## Stats
+
+| Metric | Value |
+|--------|-------|
+| Skills | 10 |
+| Total lines of content | ~32,000 |
+| Scripts (Python + Bash) | 26 |
+| Reference documents | 23 |
+| Compatible agents | 9+ |
+| GPU backends | 3 (ROCm + CUDA + CPU) |
+| License | Apache 2.0 |
+
 ## Compatibility
 
 All skills follow the [agentskills.io](https://agentskills.io/specification) specification and are compatible with:
@@ -64,6 +79,8 @@ All skills support **AMD ROCm**, **NVIDIA CUDA**, and **CPU fallback** with auto
 | PyTorch | `torch.cuda` + `torch.version.hip` | `torch.cuda` + `torch.version.cuda` | `device='cpu'` |
 | vLLM | `vllm-openai-rocm` | `vllm-openai` | `--device cpu` |
 | Docker | `--device /dev/kfd` | `--gpus all` | No flags |
+
+> **Key insight**: PyTorch's `torch.cuda` API works on both AMD ROCm and NVIDIA CUDA. Use `torch.version.hip` to distinguish AMD from NVIDIA.
 
 ## Installation
 
@@ -102,7 +119,9 @@ amd-rocm-skills/
 ├── skills.sh.json               # Groupings for skills.sh
 ├── CONTRIBUTING.md              # Contribution guidelines
 ├── CODE_OF_CONDUCT.md           # Community standards
-└── AGENTS.md                    # Agent-facing overview
+├── AGENTS.md                    # Agent-facing overview
+├── LICENSE                      # Apache 2.0
+└── README.md
 ```
 
 ## Contributing
@@ -117,6 +136,16 @@ Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines
 - No agent-specific fields (Claude Code `context`, `agent`, `model`, etc.)
 - Scripts must be executable and portable (Python 3.10+ / Bash)
 - No references to specific projects — skills are agnostic
+- Related skills cross-referenced in `## Related Skills` section
+- SKILL.md under 1000 lines
+
+### Skills We'd Love to See Contributed
+
+- `rocm-tuning` — ROCm performance tuning (HIPBLAS, RCCL, MIOpen)
+- `onnx-rocm` — ONNX Runtime with ROCm execution provider
+- `fsdp-rocm` — Fully Sharded Data Parallel on AMD GPU
+- `triton-rocm` — Triton kernels on ROCm
+- `composable-kernel` — AMD CK for custom kernels
 
 ## Roadmap
 
@@ -128,13 +157,14 @@ Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines
 | agentskills.io spec compliance | ✅ Complete |
 | skills.sh.json groupings | ✅ Complete |
 | CONTRIBUTING.md + CODE_OF_CONDUCT.md | ✅ Complete |
-| Publish to skills.sh | 📋 Planned |
+| skills.sh validation | ✅ Complete |
 | Additional industrial skills | 📋 Planned |
 | Skill evaluation framework | 📋 Planned |
+| CI/CD skill format validation | 📋 Planned |
 
 ## License
 
-Apache 2.0
+Apache 2.0 — See [LICENSE](LICENSE) for details.
 
 ## Credits
 
